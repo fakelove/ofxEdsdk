@@ -289,6 +289,14 @@ namespace ofxEdsdk {
 		// this is done before the threaded loop starts
 		this->liveReady = liveReady;
 	}
+    
+    int Camera::numCameras(){
+        int num;
+        lock();
+        num = cameras.size();
+        unlock();
+        return num;
+    }
 	
 	void Camera::setDownloadImage(EdsDirectoryItemRef directoryItem) {
 		lock();

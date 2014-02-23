@@ -3,45 +3,38 @@
 void testApp::setup() {
 	ofSetVerticalSync(true);
 	ofSetLogLevel(OF_LOG_VERBOSE);
-	cameraOne.setup(0);
-    index = 0;
+	cameraOne.setup();
+    mNumCameras = cameraOne.numCameras();
 }
 
 void testApp::update() {
 	cameraOne.update();
-	if(cameraOne.isFrameNew()) {
-		// process the live view with cameraOne.getLivePixels()
-	}
 	if(cameraOne.isPhotoNew()) {
 		// process the photo with cameraOne.getPhotoPixels()
 		// or just save the photo to disk (jpg only):
+        mNewPhoto = true;
 		cameraOne.savePhoto(ofToString(ofGetFrameNum()) + ".jpg");
-	}
+	}else if(ofGetFrameNum()%15 == 0){
+        mNewPhoto = false;
+    }
 }
 
 void testApp::draw() {
-    //	cameraOne.draw(0, 0);
-	// cameraOne.drawPhoto(0, 0, 432, 288);
 	ofBackground(4, 5,6);
-	if(cameraOne.isLiveReady()) {
-		stringstream status;
-        status << cameraOne.getWidth() << "x" << cameraOne.getHeight() << " @ " <<
-        (int) ofGetFrameRate() << " app-fps " << " / " <<
-        (int) cameraOne.getFrameRate() << " cam-fps";
-		ofDrawBitmapString(status.str(), 10, 20);
-	}
+    
+    for(int i = 0 ; i < mNumCameras; i++){
+        ofSetColor((255*i)%255, (100*i)%255, (150*i)%255);
+        ofRect(i*ofGetWidth()/mNumCameras, 0, ofGetWidth()/mNumCameras, ofGetHeight());
+    }
+    
+    if(mNewPhoto){
+        ofSetColor(255, 0, 255);
+        ofRect(0, 0, ofGetWidth(), ofGetHeight());
+    }
 }
 
 void testApp::keyPressed(int key) {
 	if(key == ' ') {
 		cameraOne.takePhoto();
 	}
-    if(key == OF_KEY_RIGHT){
-        index++;
-        if(index > 2){
-            index = 0;
-        }
-        cameraOne.setCamera(index);
-        
-    }
 }

@@ -36,7 +36,7 @@ namespace ofxEdsdk {
         void setCamera(int index);
 		ofPixels& getPhotoPixels();
 		ofTexture& getPhotoTexture();
-
+        int numCameras();
 	protected:
 		EdsCameraRef camera;
         vector<EdsCameraRef> cameras;

@@ -12,8 +12,9 @@ public:
 	void keyPressed(int key);
 	
 	ofxEdsdk::Camera cameraOne;
-    ofxEdsdk::Camera cameraTwo;
-    ofxEdsdk::Camera cameraThree;
+
     
-    int index;
+    int mNumCameras;
+    string mLastFile;
+    bool mNewPhoto;
 };
