@@ -3,36 +3,45 @@
 void testApp::setup() {
 	ofSetVerticalSync(true);
 	ofSetLogLevel(OF_LOG_VERBOSE);
-	camera.setup();
+	cameraOne.setup(0);
+    index = 0;
 }
 
 void testApp::update() {
-	camera.update();
-	if(camera.isFrameNew()) {
-		// process the live view with camera.getLivePixels()
+	cameraOne.update();
+	if(cameraOne.isFrameNew()) {
+		// process the live view with cameraOne.getLivePixels()
 	}
-	if(camera.isPhotoNew()) {
-		// process the photo with camera.getPhotoPixels()
+	if(cameraOne.isPhotoNew()) {
+		// process the photo with cameraOne.getPhotoPixels()
 		// or just save the photo to disk (jpg only):
-		camera.savePhoto(ofToString(ofGetFrameNum()) + ".jpg");
+		cameraOne.savePhoto(ofToString(ofGetFrameNum()) + ".jpg");
 	}
 }
 
 void testApp::draw() {
-	camera.draw(0, 0);
-	// camera.drawPhoto(0, 0, 432, 288);
-	
-	if(camera.isLiveReady()) {
+    //	cameraOne.draw(0, 0);
+	// cameraOne.drawPhoto(0, 0, 432, 288);
+	ofBackground(4, 5,6);
+	if(cameraOne.isLiveReady()) {
 		stringstream status;
-			status << camera.getWidth() << "x" << camera.getHeight() << " @ " <<
-			(int) ofGetFrameRate() << " app-fps " << " / " <<
-			(int) camera.getFrameRate() << " cam-fps";
+        status << cameraOne.getWidth() << "x" << cameraOne.getHeight() << " @ " <<
+        (int) ofGetFrameRate() << " app-fps " << " / " <<
+        (int) cameraOne.getFrameRate() << " cam-fps";
 		ofDrawBitmapString(status.str(), 10, 20);
 	}
 }
 
 void testApp::keyPressed(int key) {
 	if(key == ' ') {
-		camera.takePhoto();
+		cameraOne.takePhoto();
 	}
+    if(key == OF_KEY_RIGHT){
+        index++;
+        if(index > 2){
+            index = 0;
+        }
+        cameraOne.setCamera(index);
+        
+    }
 }

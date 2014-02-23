@@ -33,11 +33,13 @@ namespace ofxEdsdk {
 		void drawPhoto(float x, float y);
 		void drawPhoto(float x, float y, float width, float height);
 		bool savePhoto(string filename); // .jpg only
+        void setCamera(int index);
 		ofPixels& getPhotoPixels();
 		ofTexture& getPhotoTexture();
 
 	protected:
 		EdsCameraRef camera;
+        vector<EdsCameraRef> cameras;
 		
 		RateTimer fps;
 		
@@ -80,7 +82,7 @@ namespace ofxEdsdk {
 		bool photoDataReady; // Photo data has been downloaded at least once.
 		bool needToSendKeepAlive; // Send keepalive next chance we get.
 		bool needToDownloadImage; // Download image next chance we get.
-		
+
 		void threadedFunction();
 		
 		// the liveview needs to be reset every so often to avoid the camera turning off

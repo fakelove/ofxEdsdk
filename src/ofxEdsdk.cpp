@@ -9,7 +9,7 @@
  2 frames.
  */
 #define OFX_EDSDK_BUFFER_SIZE 4
-#define OFX_EDSDK_LIVE_DELAY 100
+#define OFX_EDSDK_LIVE_DELAY 10
 #ifdef TARGET_OSX
 #include <Cocoa/Cocoa.h>
 #elif TARGET_WIN32
@@ -62,16 +62,16 @@ namespace ofxEdsdk {
 	needToDecodePhoto(false),
 	needToUpdatePhoto(false),
 	photoDataReady(false),
-	needToSendKeepAlive(false),
+	needToSendKeepAlive(true),
 	needToDownloadImage(false),
 #ifdef  TARGET_OSX
 	bTryInitLiveView(false),
 #endif
 	resetIntervalMinutes(15) {
-		liveBufferMiddle.resize(OFX_EDSDK_BUFFER_SIZE);
-		for(int i = 0; i < liveBufferMiddle.maxSize(); i++) {
-			liveBufferMiddle[i] = new ofBuffer();
-		}
+//		liveBufferMiddle.resize(OFX_EDSDK_BUFFER_SIZE);
+//		for(int i = 0; i < liveBufferMiddle.maxSize(); i++) {
+//			liveBufferMiddle[i] = new ofBuffer();
+//		}
 	}
 	
 	Camera::~Camera() {
@@ -79,14 +79,19 @@ namespace ofxEdsdk {
 		lock();
 		if(connected) {
 			if(liveReady) {
-				Eds::EndLiveview(camera);
+				//Eds::EndLiveview(camera);
 			}
-			try {
-				Eds::CloseSession(camera);
-				Eds::TerminateSDK();
-			} catch (Eds::Exception& e) {
-				ofLogError() << "There was an error destroying ofxEds::Camera: " << e.what();
-			}
+            for(int i = 0; i < cameras.size(); i++){
+                try {
+                    
+                    Eds::CloseSession(cameras[i]);
+                    
+                    
+                } catch (Eds::Exception& e) {
+                    ofLogError() << "There was an error destroying ofxEds::Camera: " << e.what();
+                }
+            }
+            Eds::TerminateSDK();
 		}
 		unlock();
 		for(int i = 0; i < liveBufferMiddle.maxSize(); i++) {
@@ -104,18 +109,26 @@ namespace ofxEdsdk {
 			UInt32 cameraCount;
 			Eds::GetChildCount(cameraList, &cameraCount);
 			
-			if(cameraCount > 0) {				
-				EdsInt32 cameraIndex = deviceId;
-				Eds::GetChildAtIndex(cameraList, cameraIndex, &camera);
-				Eds::SetObjectEventHandler(camera, kEdsObjectEvent_All, handleObjectEvent, this);
-				Eds::SetPropertyEventHandler(camera, kEdsPropertyEvent_All, handlePropertyEvent, this);
-				Eds::SetCameraStateEventHandler(camera, kEdsStateEvent_All, handleCameraStateEvent, this);
-				
-				EdsDeviceInfo info;
-				Eds::GetDeviceInfo(camera, &info);
-				Eds::SafeRelease(cameraList);
-				ofLogVerbose("ofxEdsdk::setup") << "connected camera model: " <<  info.szDeviceDescription << " " << info.szPortName << endl;
-				
+			if(cameraCount > 0) {
+				for(int i = 0; i < cameraCount; i++){
+                    EdsCameraRef fooRef;
+                    
+                    
+                    EdsInt32 cameraIndex = i;
+                    
+                    Eds::GetChildAtIndex(cameraList, cameraIndex, &fooRef);
+                    Eds::SetObjectEventHandler(fooRef, kEdsObjectEvent_All, handleObjectEvent, this);
+                    Eds::SetPropertyEventHandler(fooRef, kEdsPropertyEvent_All, handlePropertyEvent, this);
+                    Eds::SetCameraStateEventHandler(fooRef, kEdsStateEvent_All, handleCameraStateEvent, this);
+                    
+                    EdsDeviceInfo info;
+                    Eds::GetDeviceInfo(fooRef, &info);
+                
+                    ofLogVerbose("ofxEdsdk::setup") << "connected camera model: " <<  info.szDeviceDescription << " " << info.szPortName <<" of "<<cameraCount<< endl;
+                    cameras.push_back(fooRef);
+				}
+                //camera = cameras[deviceId];
+                Eds::SafeRelease(cameraList);
 				startThread(true, false);
 				return true;
 			} else {
@@ -130,33 +143,33 @@ namespace ofxEdsdk {
 	void Camera::update() {
 		if(connected){
 #ifdef TARGET_OSX
-			if (bTryInitLiveView) {
-				if (ofGetElapsedTimeMillis() - initTime > OFX_EDSDK_LIVE_DELAY) {
-					bTryInitLiveView = false;
-					resetLiveView();
-				}
-			}
+            //			if (bTryInitLiveView) {
+            //				if (ofGetElapsedTimeMillis() - initTime > OFX_EDSDK_LIVE_DELAY) {
+            //					bTryInitLiveView = false;
+            //					resetLiveView();
+            //				}
+            //			}
 #endif
-		lock();
-		if(liveBufferMiddle.size() > 0) {
-			// decoding the jpeg in the main thread allows the capture thread to run in a tighter loop.
-			ofBuffer* middleFront = liveBufferMiddle.front();
-			liveBufferFront.set(middleFront->getBinaryBuffer(), middleFront->size());
-			liveBufferMiddle.pop();
-			unlock();
-			ofLoadImage(livePixels, liveBufferFront);
-			if(liveTexture.getWidth() != livePixels.getWidth() ||
-				 liveTexture.getHeight() != livePixels.getHeight()) {
-				liveTexture.allocate(livePixels.getWidth(), livePixels.getHeight(), GL_RGB8);
-			}
-			liveTexture.loadData(livePixels);
-			lock();
-			liveDataReady = true;
-			frameNew = true;
-			unlock();
-		} else {
-			unlock();
-		}
+            lock();
+            if(liveBufferMiddle.size() > 0) {
+                // decoding the jpeg in the main thread allows the capture thread to run in a tighter loop.
+                ofBuffer* middleFront = liveBufferMiddle.front();
+                liveBufferFront.set(middleFront->getBinaryBuffer(), middleFront->size());
+                liveBufferMiddle.pop();
+                unlock();
+                ofLoadImage(livePixels, liveBufferFront);
+                if(liveTexture.getWidth() != livePixels.getWidth() ||
+                   liveTexture.getHeight() != livePixels.getHeight()) {
+                    liveTexture.allocate(livePixels.getWidth(), livePixels.getHeight(), GL_RGB8);
+                }
+                liveTexture.loadData(livePixels);
+                lock();
+                liveDataReady = true;
+                frameNew = true;
+                unlock();
+            } else {
+                unlock();
+            }
 		}
 	}
 	
@@ -168,6 +181,15 @@ namespace ofxEdsdk {
 			return false;
 		}
 	}
+    
+    void Camera::setCamera(int index){
+        //        lock();
+        //        if(index< cameras.size() ){
+        //            camera = cameras[index];
+        //            resetLiveView();
+        //        }
+        //        unlock();
+    }
 	
 	bool Camera::isPhotoNew() {
 		if(photoNew) {
@@ -192,7 +214,7 @@ namespace ofxEdsdk {
 		unlock();
 		if(blocking) {
 			while(!photoNew) {
-				ofSleepMillis(10);
+				//ofSleepMillis(10);
 			}
 		}
 	}
@@ -222,9 +244,9 @@ namespace ofxEdsdk {
 	}
 	
 	void Camera::draw(float x, float y, float width, float height) {
-		if(liveDataReady) {
-			liveTexture.draw(x, y, width, height);
-		}
+//		if(liveDataReady) {
+//			liveTexture.draw(x, y, width, height);
+//		}
 	}
 	
 	ofTexture& Camera::getLiveTexture() {
@@ -232,31 +254,31 @@ namespace ofxEdsdk {
 	}
 	
 	void Camera::drawPhoto(float x, float y) {
-		if(photoDataReady) {
-			ofPixels& photoPixels = getPhotoPixels();
-			draw(x, y, getWidth(), getHeight());
-		}
+//		if(photoDataReady) {
+//			ofPixels& photoPixels = getPhotoPixels();
+//			draw(x, y, getWidth(), getHeight());
+//		}
 	}
 	
 	void Camera::drawPhoto(float x, float y, float width, float height) {
-		if(photoDataReady) {
-			photoTexture.draw(x, y, width, height);
-		}
+//		if(photoDataReady) {
+//			photoTexture.draw(x, y, width, height);
+//		}
 	}
 	
 	ofTexture& Camera::getPhotoTexture() {
-		if(photoDataReady) {
-			ofPixels& photoPixels = getPhotoPixels();
-			if(needToUpdatePhoto) {
-				if(photoTexture.getWidth() != photoPixels.getWidth() ||
-					 photoTexture.getHeight() != photoPixels.getHeight()) {
-					photoTexture.allocate(photoPixels.getWidth(), photoPixels.getHeight(), GL_RGB8);
-				}
-				photoTexture.loadData(photoPixels);
-				needToUpdatePhoto = false;
-			}
-		}
-		return photoTexture;
+//		if(photoDataReady) {
+//			ofPixels& photoPixels = getPhotoPixels();
+//			if(needToUpdatePhoto) {
+//				if(photoTexture.getWidth() != photoPixels.getWidth() ||
+//                   photoTexture.getHeight() != photoPixels.getHeight()) {
+//					photoTexture.allocate(photoPixels.getWidth(), photoPixels.getHeight(), GL_RGB8);
+//				}
+//				photoTexture.loadData(photoPixels);
+//				needToUpdatePhoto = false;
+//			}
+//		}
+//		return photoTexture;
 	}
 	
 	bool Camera::isLiveReady() const {
@@ -271,6 +293,7 @@ namespace ofxEdsdk {
 	void Camera::setDownloadImage(EdsDirectoryItemRef directoryItem) {
 		lock();
 		this->directoryItem = directoryItem;
+        //camera = camRef;
 		needToDownloadImage = true;
 		unlock();
 	}
@@ -286,12 +309,12 @@ namespace ofxEdsdk {
 	}
 	
 	void Camera::resetLiveView() {
-		lock();
-		if(connected) {
-			Eds::StartLiveview(camera);
-			lastResetTime = ofGetElapsedTimef();
-		}
-		unlock();
+        //		lock();
+        ////		if(connected) {
+        ////			Eds::StartLiveview(camera);
+        ////			lastResetTime = ofGetElapsedTimef();
+        ////		}
+        //		unlock();
 	}
 	
 	void Camera::threadedFunction() {
@@ -300,13 +323,15 @@ namespace ofxEdsdk {
 		NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 #elif TARGET_WIN32
 		CoInitializeEx( NULL, 0x0);// OINIT_MULTITHREADED );
-#endif	
+#endif
 		lock();
 		try {
-			Eds::OpenSession(camera);
+            for(int i = 0; i < cameras.size(); i++){
+                Eds::OpenSession(cameras[i]);
+            }
 			connected = true;
 #ifdef TARGET_OSX
-			bTryInitLiveView = true;
+			bTryInitLiveView = false;
 			initTime = ofGetElapsedTimeMillis();
 #else
 			Eds::StartLiveview(camera);
@@ -321,23 +346,25 @@ namespace ofxEdsdk {
 		// threaded variables:
 		// liveReady, liveBufferMiddle, liveBufferBack, fps, needToTakePhoto
 		while(isThreadRunning()) {
-			if(liveReady) {
-				if(Eds::DownloadEvfData(camera, liveBufferBack)) {
-					lock();
-					ofBuffer* middleBack = liveBufferMiddle.back();
-					middleBack->set(liveBufferBack.getBinaryBuffer(), liveBufferBack.size()); // liveBufferMiddle = liveBufferBack;
-					liveBufferMiddle.push();
-					fps.tick();
-					unlock();
-				}
-			}
+            //			if(liveReady) {
+            //				if(Eds::DownloadEvfData(camera, liveBufferBack)) {
+            //					lock();
+            //					ofBuffer* middleBack = liveBufferMiddle.back();
+            //					middleBack->set(liveBufferBack.getBinaryBuffer(), liveBufferBack.size()); // liveBufferMiddle = liveBufferBack;
+            //					liveBufferMiddle.push();
+            //					fps.tick();
+            //					unlock();
+            //				}
+            //			}
 			
 			if(needToTakePhoto) {
 				try {
-					Eds::SendCommand(camera, kEdsCameraCommand_TakePicture, 0);
-					lock();
-					needToTakePhoto = false;
-					unlock();
+                    for(int i = 0; i < cameras.size(); i++){
+                        Eds::SendCommand(cameras[i], kEdsCameraCommand_TakePicture, 0);
+                        lock();
+                        needToTakePhoto = false;
+                        unlock();
+                    }
 				} catch (Eds::Exception& e) {
 					ofLogError() << "Error while taking a picture: " << e.what();
 				}
@@ -347,7 +374,9 @@ namespace ofxEdsdk {
 				try {
 					// always causes EDS_ERR_DEVICE_BUSY, even with live view disabled or a delay
 					// but if it's not here, then the camera shuts down after 5 minutes.
-					Eds::SendStatusCommand(camera, kEdsCameraCommand_ExtendShutDownTimer, 0);
+					for(int i = 0; i < cameras.size(); i++){
+                        Eds::SendCommand(cameras[i], kEdsCameraCommand_ExtendShutDownTimer, 0);
+                    }
 				} catch (Eds::Exception& e) {
 					ofLogError() << "Error while sending kEdsCameraCommand_ExtendShutDownTimer with Eds::SendStatusCommand: " << e.what();
 				}
@@ -372,13 +401,13 @@ namespace ofxEdsdk {
 				}
 			}
 			
-			float timeSinceLastReset = ofGetElapsedTimef() - lastResetTime;
-			if(timeSinceLastReset > resetIntervalMinutes * 60) {
-				resetLiveView();
-			}
+            //			float timeSinceLastReset = ofGetElapsedTimef() - lastResetTime;
+            //			if(timeSinceLastReset > resetIntervalMinutes * 60) {
+            //				resetLiveView();
+            //			}
 			
 			// the t2i can run at 30 fps = 33 ms, so this might cause frame drops
-			ofSleepMillis(5);
+			//ofSleepMillis(5);
 		}
 #ifdef TARGET_OSX
 		[pool drain];
