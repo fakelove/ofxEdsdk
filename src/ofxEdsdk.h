@@ -10,11 +10,12 @@
 #include "FixedQueue.h"
 
 namespace ofxEdsdk {
-	
-	class Camera : public ofThread {
+	class Camera {
+        
 	public:
-		Camera();
-		~Camera();
+
+        static Camera* getInstance();
+        
 		bool setup(int deviceId = 0);
 		
 		void update();
@@ -29,18 +30,51 @@ namespace ofxEdsdk {
 		float getFrameRate();
 		
 		void takePhoto(bool blocking = false);
+        void takePhoto(string blocking);
 		bool isPhotoNew();
 		void drawPhoto(float x, float y);
 		void drawPhoto(float x, float y, float width, float height);
 		bool savePhoto(string filename); // .jpg only
-        void setCamera(int index);
+
+        void exit();
+        vector<string> getSerialNumbers();
+        map<int, string> getSerialMap();
 		ofPixels& getPhotoPixels();
 		ofTexture& getPhotoTexture();
+        map<string, ofBuffer> getImages();
+        ofBuffer getImage();
         int numCameras();
 	protected:
+//        class LiveView : public ofThread{
+//            static LiveView* getLiveViews();
+//            
+//        };
+        Camera():connected(false),
+        liveReady(false),
+        liveDataReady(false),
+        frameNew(false),
+        needToTakePhoto(false),
+        photoNew(false),
+        needToDecodePhoto(false),
+        needToUpdatePhoto(false),
+        photoDataReady(false),
+        needToSendKeepAlive(false),
+        needToDownloadImage(false),
+#ifdef  TARGET_OSX
+        bTryInitLiveView(false),
+#endif
+        resetIntervalMinutes(15){};
+        Camera( Camera const& ){};
+		~Camera();
 		EdsCameraRef camera;
         vector<EdsCameraRef> cameras;
-		
+        map<string, ofBuffer> mBuffers;
+        deque<ofBuffer> dBuff;
+        map<int, string> mCamSerials;
+        map<string, EdsCameraRef> mCamsSerial;
+        vector<string> vCamSerials;
+        map<int, string> camName;
+		static Camera *mInstance;
 		RateTimer fps;
 		
 		/*
@@ -83,7 +117,6 @@ namespace ofxEdsdk {
 		bool needToSendKeepAlive; // Send keepalive next chance we get.
 		bool needToDownloadImage; // Download image next chance we get.
 
-		void threadedFunction();
 		
 		// the liveview needs to be reset every so often to avoid the camera turning off
 		float resetIntervalMinutes;
@@ -95,13 +128,24 @@ namespace ofxEdsdk {
 		static EdsError EDSCALLBACK handleCameraStateEvent(EdsStateEvent event, EdsUInt32 param, EdsVoid* context);
 		
 		void setLiveReady(bool liveViewReady);
-		void setDownloadImage(EdsDirectoryItemRef directoryItem);
+		void setDownloadImage(EdsDirectoryItemRef directoryItem, string serial);
 		void setSendKeepAlive();
-		
+		string mCurrentSerial;
 		EdsDirectoryItemRef directoryItem;
+        
+
+        
 #ifdef TARGET_OSX        
         int initTime;
         bool bTryInitLiveView;
 #endif
 	};
+    
+    class CameraCallBack{
+    public:
+        CameraCallBack(){ cam = ofxEdsdk::Camera::getInstance();};
+        ~CameraCallBack(){};
+        Camera* cam;
+        int camIndex;
+    };
 }

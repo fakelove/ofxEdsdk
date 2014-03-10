@@ -529,7 +529,7 @@ typedef  EdsUInt32  EdsStateEvent;
 #define kEdsStateEvent_InternalError                0x00000306
 
 
-#define kEdsStateEvent_AfResult                     0x00000309	
+#define kEdsStateEvent_AfResult                     0x00000309
 
 
 #define kEdsStateEvent_BulbExposureTime             0x00000310	

@@ -32,12 +32,12 @@ namespace Eds {
 	void CreateFileStream(const EdsChar* inFileName, EdsFileCreateDisposition inCreateDisposition, EdsAccess inDesiredAccess, EdsStreamRef* outStream) {EdsError err = EdsCreateFileStream(inFileName, inCreateDisposition, inDesiredAccess, outStream); if(err != EDS_ERR_OK) {throw Exception(err, "CreateFileStream");}}
 	void CreateMemoryStream(EdsUInt32 inBufferSize, EdsStreamRef* outStream) {EdsError err = EdsCreateMemoryStream(inBufferSize, outStream); if(err != EDS_ERR_OK) {throw Exception(err, "CreateMemoryStream");}}
 	void CreateFileStreamEx(
-		#ifdef __MACOS__
-			const CFURLRef inURL,
-		#else
-			const WCHAR* inURL,
-		#endif
-		EdsFileCreateDisposition inCreateDisposition, EdsAccess inDesiredAccess, EdsStreamRef* outStream) {EdsError err = EdsCreateFileStreamEx(inURL, inCreateDisposition, inDesiredAccess, outStream); if(err != EDS_ERR_OK) {throw Exception(err, "CreateFileStreamEx");}}
+#ifdef __MACOS__
+                            const CFURLRef inURL,
+#else
+                            const WCHAR* inURL,
+#endif
+                            EdsFileCreateDisposition inCreateDisposition, EdsAccess inDesiredAccess, EdsStreamRef* outStream) {EdsError err = EdsCreateFileStreamEx(inURL, inCreateDisposition, inDesiredAccess, outStream); if(err != EDS_ERR_OK) {throw Exception(err, "CreateFileStreamEx");}}
 	void CreateMemoryStreamFromPointer(EdsVoid* inUserBuffer, EdsUInt32 inBufferSize, EdsStreamRef* outStream) {EdsError err = EdsCreateMemoryStreamFromPointer(inUserBuffer, inBufferSize, outStream); if(err != EDS_ERR_OK) {throw Exception(err, "CreateMemoryStreamFromPointer");}}
 	void GetPointer(EdsStreamRef inStream, EdsVoid** outPointer) {EdsError err = EdsGetPointer(inStream, outPointer); if(err != EDS_ERR_OK) {throw Exception(err, "GetPointer");}}
 	void Read(EdsStreamRef inStreamRef, EdsUInt32 inReadSize, EdsVoid* outBuffer, EdsUInt32* outReadSize) {EdsError err = EdsRead(inStreamRef, inReadSize, outBuffer, outReadSize); if(err != EDS_ERR_OK) {throw Exception(err, "Read");}}
@@ -60,5 +60,5 @@ namespace Eds {
 	void SetObjectEventHandler(EdsCameraRef inCameraRef, EdsObjectEvent inEvnet, EdsObjectEventHandler inObjectEventHandler, EdsVoid* inContext) {EdsError err = EdsSetObjectEventHandler(inCameraRef, inEvnet, inObjectEventHandler, inContext); if(err != EDS_ERR_OK) {throw Exception(err, "SetObjectEventHandler");}}
 	void SetCameraStateEventHandler(EdsCameraRef inCameraRef, EdsStateEvent inEvnet, EdsStateEventHandler inStateEventHandler, EdsVoid* inContext) {EdsError err = EdsSetCameraStateEventHandler(inCameraRef, inEvnet, inStateEventHandler, inContext); if(err != EDS_ERR_OK) {throw Exception(err, "SetCameraStateEventHandler");}}
 	void CreateStream(EdsIStream* inStream, EdsStreamRef* outStreamRef) {EdsError err = EdsCreateStream(inStream, outStreamRef); if(err != EDS_ERR_OK) {throw Exception(err, "CreateStream");}}
-	void GetEvent(){EdsError err = EdsGetEvent(); if(err != EDS_ERR_OK) {throw Exception(err, "GetEvent");}}	
+	void GetEvent(){EdsError err = EdsGetEvent(); if(err != EDS_ERR_OK) {throw Exception(err, "GetEvent");}}
 }
