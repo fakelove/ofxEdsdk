@@ -1,2 +1,7 @@
 ofxEdsdk
 ofxCocoaWindow
+ofxUI
+ofxOSCSync
+ofxOsc
+ofxWatchdog
+ofxXmlSettings
