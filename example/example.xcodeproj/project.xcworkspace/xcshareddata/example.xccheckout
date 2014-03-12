@@ -12,6 +12,8 @@
 	<dict>
 		<key>0DE820C5-CF6B-45E1-90CD-A321050CF400</key>
 		<string>https://github.com/rezaali/ofxUI.git</string>
+		<key>168D4040-F86E-4D56-8BA5-479666326732</key>
+		<string>https://github.com/redpaperheart/Cinder-CanonSdk.git</string>
 		<key>AEF602A4-A70E-4E66-822C-2B46CEB794E2</key>
 		<string>https://github.com/openframeworks/openFrameworks.git</string>
 		<key>B6D13768-B08B-4726-8D87-5BC3773E4375</key>
@@ -29,6 +31,8 @@
 	<dict>
 		<key>0DE820C5-CF6B-45E1-90CD-A321050CF400</key>
 		<string>../../../../ofxUI</string>
+		<key>168D4040-F86E-4D56-8BA5-479666326732</key>
+		<string>../../../../../../Cinder/blocks/Cinder-CanonSdk</string>
 		<key>AEF602A4-A70E-4E66-822C-2B46CEB794E2</key>
 		<string>../../../../..</string>
 		<key>B6D13768-B08B-4726-8D87-5BC3773E4375</key>
@@ -48,6 +52,14 @@
 	<string>AEF602A4-A70E-4E66-822C-2B46CEB794E2</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>168D4040-F86E-4D56-8BA5-479666326732</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cinder-CanonSdk</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

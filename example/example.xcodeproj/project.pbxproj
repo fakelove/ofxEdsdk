@@ -8,16 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1860F8A0A6E186989E1BCA1B /* ofxCocoaWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 982F21FC2DFEE722FBB84292 /* ofxCocoaWindow.mm */; };
-		25BC98C28D78024F202A79FB /* ofxEdsdk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1934179099162351F1B5B888 /* ofxEdsdk.cpp */; };
 		29D734F0DDECC8C5978185D7 /* testApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00A1BFCBB38848AD0E0C8539 /* testApp.cpp */; };
-		4218B75B282493DAC567F4DB /* EdsStrings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9F919DBE9A48D9B371A113B /* EdsStrings.cpp */; };
 		7FC3313A0C9098D6C6D0CFB7 /* ofxCocoaDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 614D06402BCB9161C53B2355 /* ofxCocoaDelegate.mm */; };
 		9754517CF564D416069E0E69 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 455191F5CFF2F853BCAD9BBD /* GLView.mm */; };
-		98B8FBEBCB30751117560A3C /* EdsException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E82CDAAC4A26EC1B373C4277 /* EdsException.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
-		C734402E0210D65EEE6DAFBF /* EdsWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82E7AA330574FD684E200968 /* EdsWrapper.cpp */; };
-		C80B25F118BFD581000147DF /* DPP.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8B7004C18BFD54E00CD234C /* DPP.framework */; };
-		C80B25F218BFD583000147DF /* EDSDK.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C8B7004D18BFD54E00CD234C /* EDSDK.framework */; };
 		C80B25F718BFD8FB000147DF /* ofxWatchdog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C80B25F518BFD8FB000147DF /* ofxWatchdog.cpp */; };
 		C80B260118BFDB80000147DF /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C80B25FA18BFDB80000147DF /* ofxXmlSettings.cpp */; };
 		C80B260218BFDB80000147DF /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C80B25FD18BFDB80000147DF /* tinyxml.cpp */; };
@@ -41,9 +35,16 @@
 		C822126D18C121500071C377 /* OscTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C822126018C121500071C377 /* OscTypes.cpp */; };
 		C86B77AF18CE7621002A730B /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86B77AD18CE7621002A730B /* Quartz.framework */; };
 		C86B77B018CE7621002A730B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86B77AE18CE7621002A730B /* QuartzCore.framework */; };
+		C88950CD18CF57D5009AFEFF /* EdsExamples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88950B718CF57D5009AFEFF /* EdsExamples.cpp */; };
+		C88950CE18CF57D5009AFEFF /* EdsException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88950B918CF57D5009AFEFF /* EdsException.cpp */; };
+		C88950CF18CF57D5009AFEFF /* EdsStrings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88950BB18CF57D5009AFEFF /* EdsStrings.cpp */; };
+		C88950D018CF57D5009AFEFF /* EdsWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88950BD18CF57D5009AFEFF /* EdsWrapper.cpp */; };
+		C88950D118CF57D5009AFEFF /* ofxEdsdk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C88950C018CF57D5009AFEFF /* ofxEdsdk.cpp */; };
+		C88950D218CF57D5009AFEFF /* DPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C88950C618CF57D5009AFEFF /* DPP.framework */; };
+		C88950D318CF57D5009AFEFF /* EDSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C88950C718CF57D5009AFEFF /* EDSDK.framework */; };
+		C88950D418CF57E7009AFEFF /* DPP.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C88950C618CF57D5009AFEFF /* DPP.framework */; };
+		C88950D518CF57E7009AFEFF /* EDSDK.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C88950C718CF57D5009AFEFF /* EDSDK.framework */; };
 		C8B7004A18BFD52D00CD234C /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = C8B7004918BFD52D00CD234C /* main.mm */; };
-		C8B7004E18BFD55600CD234C /* DPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B7004C18BFD54E00CD234C /* DPP.framework */; };
-		C8B7004F18BFD55600CD234C /* EDSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B7004D18BFD54E00CD234C /* EDSDK.framework */; };
 		C8C9F84118CA37EC005B88B8 /* ofxUI2DGraph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8C9F7E418CA37EC005B88B8 /* ofxUI2DGraph.cpp */; };
 		C8C9F84218CA37EC005B88B8 /* ofxUI2DPad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8C9F7E618CA37EC005B88B8 /* ofxUI2DPad.cpp */; };
 		C8C9F84318CA37EC005B88B8 /* ofxUIBaseDraws.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8C9F7E818CA37EC005B88B8 /* ofxUIBaseDraws.cpp */; };
@@ -88,7 +89,6 @@
 		C8C9F86A18CA37EC005B88B8 /* ofxUIWaveform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8C9F83918CA37EC005B88B8 /* ofxUIWaveform.cpp */; };
 		C8C9F86B18CA37EC005B88B8 /* ofxUIWidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8C9F83B18CA37EC005B88B8 /* ofxUIWidget.cpp */; };
 		C8C9F86C18CA37EC005B88B8 /* ofxUIWidgetWithLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C8C9F83E18CA37EC005B88B8 /* ofxUIWidgetWithLabel.cpp */; };
-		DC0E62F8B0B3788019133EEE /* EdsExamples.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92055C671EEE8A524CF272AC /* EdsExamples.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -132,9 +132,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C80B25F218BFD583000147DF /* EDSDK.framework in CopyFiles */,
 				BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */,
-				C80B25F118BFD581000147DF /* DPP.framework in CopyFiles */,
+				C88950D418CF57E7009AFEFF /* DPP.framework in CopyFiles */,
+				C88950D518CF57E7009AFEFF /* EDSDK.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,21 +143,11 @@
 /* Begin PBXFileReference section */
 		00A1BFCBB38848AD0E0C8539 /* testApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = testApp.cpp; path = src/testApp.cpp; sourceTree = SOURCE_ROOT; };
 		184A82FB73277A1D607EFAA3 /* ofxCocoaDelegate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCocoaDelegate.h; path = ../../../addons/ofxCocoaWindow/src/ofxCocoaDelegate.h; sourceTree = SOURCE_ROOT; };
-		1934179099162351F1B5B888 /* ofxEdsdk.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxEdsdk.cpp; path = ../../../addons/ofxEdsdk/src/ofxEdsdk.cpp; sourceTree = SOURCE_ROOT; };
 		2D129AB0F7D46B8DFCEADEDB /* testApp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = testApp.h; path = src/testApp.h; sourceTree = SOURCE_ROOT; };
 		455191F5CFF2F853BCAD9BBD /* GLView.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = GLView.mm; path = ../../../addons/ofxCocoaWindow/src/GLView.mm; sourceTree = SOURCE_ROOT; };
-		54818A1268A71512E1BF1599 /* EdsException.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = EdsException.h; path = ../../../addons/ofxEdsdk/src/EdsWrapper/EdsException.h; sourceTree = SOURCE_ROOT; };
-		5599781C5743F242B7B3FD27 /* EDSDK.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = EDSDK.h; path = ../../../addons/ofxEdsdk/libs/EDSDK/Header/EDSDK.h; sourceTree = SOURCE_ROOT; };
 		614D06402BCB9161C53B2355 /* ofxCocoaDelegate.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = ofxCocoaDelegate.mm; path = ../../../addons/ofxCocoaWindow/src/ofxCocoaDelegate.mm; sourceTree = SOURCE_ROOT; };
-		73F874EFBA0344A6BF79603D /* EdsStrings.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = EdsStrings.h; path = ../../../addons/ofxEdsdk/src/EdsWrapper/EdsStrings.h; sourceTree = SOURCE_ROOT; };
-		7791AC9511C1676937AEB387 /* EdsExamples.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = EdsExamples.h; path = ../../../addons/ofxEdsdk/src/EdsWrapper/EdsExamples.h; sourceTree = SOURCE_ROOT; };
-		82E7AA330574FD684E200968 /* EdsWrapper.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = EdsWrapper.cpp; path = ../../../addons/ofxEdsdk/src/EdsWrapper/EdsWrapper.cpp; sourceTree = SOURCE_ROOT; };
-		92055C671EEE8A524CF272AC /* EdsExamples.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = EdsExamples.cpp; path = ../../../addons/ofxEdsdk/src/EdsWrapper/EdsExamples.cpp; sourceTree = SOURCE_ROOT; };
-		98122687E6A63929096132E4 /* EdsWrapper.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = EdsWrapper.h; path = ../../../addons/ofxEdsdk/src/EdsWrapper/EdsWrapper.h; sourceTree = SOURCE_ROOT; };
 		982F21FC2DFEE722FBB84292 /* ofxCocoaWindow.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 30; name = ofxCocoaWindow.mm; path = ../../../addons/ofxCocoaWindow/src/ofxCocoaWindow.mm; sourceTree = SOURCE_ROOT; };
-		AB82260D99436779EC6390CF /* EDSDKTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = EDSDKTypes.h; path = ../../../addons/ofxEdsdk/libs/EDSDK/Header/EDSDKTypes.h; sourceTree = SOURCE_ROOT; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
-		C1885FC3281895D66D14ABA4 /* EDSDKErrors.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = EDSDKErrors.h; path = ../../../addons/ofxEdsdk/libs/EDSDK/Header/EDSDKErrors.h; sourceTree = SOURCE_ROOT; };
 		C80B25F518BFD8FB000147DF /* ofxWatchdog.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxWatchdog.cpp; sourceTree = "<group>"; };
 		C80B25F618BFD8FB000147DF /* ofxWatchdog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxWatchdog.h; sourceTree = "<group>"; };
 		C80B25FA18BFDB80000147DF /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
@@ -210,9 +200,25 @@
 		C822126118C121500071C377 /* OscTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OscTypes.h; sourceTree = "<group>"; };
 		C86B77AD18CE7621002A730B /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Quartz.framework; sourceTree = DEVELOPER_DIR; };
 		C86B77AE18CE7621002A730B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		C88950B718CF57D5009AFEFF /* EdsExamples.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EdsExamples.cpp; sourceTree = "<group>"; };
+		C88950B818CF57D5009AFEFF /* EdsExamples.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EdsExamples.h; sourceTree = "<group>"; };
+		C88950B918CF57D5009AFEFF /* EdsException.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EdsException.cpp; sourceTree = "<group>"; };
+		C88950BA18CF57D5009AFEFF /* EdsException.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EdsException.h; sourceTree = "<group>"; };
+		C88950BB18CF57D5009AFEFF /* EdsStrings.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EdsStrings.cpp; sourceTree = "<group>"; };
+		C88950BC18CF57D5009AFEFF /* EdsStrings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EdsStrings.h; sourceTree = "<group>"; };
+		C88950BD18CF57D5009AFEFF /* EdsWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EdsWrapper.cpp; sourceTree = "<group>"; };
+		C88950BE18CF57D5009AFEFF /* EdsWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EdsWrapper.h; sourceTree = "<group>"; };
+		C88950BF18CF57D5009AFEFF /* FixedQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FixedQueue.h; sourceTree = "<group>"; };
+		C88950C018CF57D5009AFEFF /* ofxEdsdk.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxEdsdk.cpp; sourceTree = "<group>"; };
+		C88950C118CF57D5009AFEFF /* ofxEdsdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxEdsdk.h; sourceTree = "<group>"; };
+		C88950C218CF57D5009AFEFF /* RateTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RateTimer.h; sourceTree = "<group>"; };
+		C88950C618CF57D5009AFEFF /* DPP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DPP.framework; sourceTree = "<group>"; };
+		C88950C718CF57D5009AFEFF /* EDSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EDSDK.framework; sourceTree = "<group>"; };
+		C88950C918CF57D5009AFEFF /* EDSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSDK.h; sourceTree = "<group>"; };
+		C88950CA18CF57D5009AFEFF /* EDSDKErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSDKErrors.h; sourceTree = "<group>"; };
+		C88950CB18CF57D5009AFEFF /* EDSDKTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDSDKTypes.h; sourceTree = "<group>"; };
+		C88950CC18CF57D5009AFEFF /* read.me */ = {isa = PBXFileReference; lastKnownFileType = text; path = read.me; sourceTree = "<group>"; };
 		C8B7004918BFD52D00CD234C /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		C8B7004C18BFD54E00CD234C /* DPP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DPP.framework; sourceTree = "<group>"; };
-		C8B7004D18BFD54E00CD234C /* EDSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EDSDK.framework; sourceTree = "<group>"; };
 		C8C9F7E318CA37EC005B88B8 /* ofxUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxUI.h; sourceTree = "<group>"; };
 		C8C9F7E418CA37EC005B88B8 /* ofxUI2DGraph.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxUI2DGraph.cpp; sourceTree = "<group>"; };
 		C8C9F7E518CA37EC005B88B8 /* ofxUI2DGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxUI2DGraph.h; sourceTree = "<group>"; };
@@ -307,9 +313,6 @@
 		C8C9F83E18CA37EC005B88B8 /* ofxUIWidgetWithLabel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxUIWidgetWithLabel.cpp; sourceTree = "<group>"; };
 		C8C9F83F18CA37EC005B88B8 /* ofxUIWidgetWithLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxUIWidgetWithLabel.h; sourceTree = "<group>"; };
 		C8C9F84018CA37EC005B88B8 /* ofxUIWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxUIWrapper.h; sourceTree = "<group>"; };
-		D03229F2B0E0DA9C6B39A2D9 /* RateTimer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = RateTimer.h; path = ../../../addons/ofxEdsdk/src/RateTimer.h; sourceTree = SOURCE_ROOT; };
-		D11D2727C9235B964B49BE92 /* FixedQueue.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FixedQueue.h; path = ../../../addons/ofxEdsdk/src/FixedQueue.h; sourceTree = SOURCE_ROOT; };
-		D75006A4CBBAAFAAFCFA7304 /* ofxEdsdk.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxEdsdk.h; path = ../../../addons/ofxEdsdk/src/ofxEdsdk.h; sourceTree = SOURCE_ROOT; };
 		DDA458554D1CF4B178EEE17C /* EDSDK.framework */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = wrapper.framework; name = EDSDK.framework; path = ../../../addons/ofxEdsdk/libs/EDSDK/Framework/EDSDK.framework; sourceTree = "<group>"; };
 		DEA06AE257373CEA7EE92CFC /* GLView.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = GLView.h; path = ../../../addons/ofxCocoaWindow/src/GLView.h; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -332,10 +335,8 @@
 		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
-		E82CDAAC4A26EC1B373C4277 /* EdsException.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = EdsException.cpp; path = ../../../addons/ofxEdsdk/src/EdsWrapper/EdsException.cpp; sourceTree = SOURCE_ROOT; };
 		F129E9AB675024EE03BECC83 /* ofxCocoaWindow.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCocoaWindow.h; path = ../../../addons/ofxCocoaWindow/src/ofxCocoaWindow.h; sourceTree = SOURCE_ROOT; };
 		F45AFBB35AD94E08849916E4 /* DPP.framework */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = wrapper.framework; name = DPP.framework; path = ../../../addons/ofxEdsdk/libs/EDSDK/Framework/DPP.framework; sourceTree = "<group>"; };
-		F9F919DBE9A48D9B371A113B /* EdsStrings.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = EdsStrings.cpp; path = ../../../addons/ofxEdsdk/src/EdsWrapper/EdsStrings.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,8 +346,6 @@
 			files = (
 				C86B77AF18CE7621002A730B /* Quartz.framework in Frameworks */,
 				C86B77B018CE7621002A730B /* QuartzCore.framework in Frameworks */,
-				C8B7004E18BFD55600CD234C /* DPP.framework in Frameworks */,
-				C8B7004F18BFD55600CD234C /* EDSDK.framework in Frameworks */,
 				E7F985F815E0DEA3003869B5 /* Accelerate.framework in Frameworks */,
 				E7E077E815D3B6510020DFD4 /* QTKit.framework in Frameworks */,
 				E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */,
@@ -364,36 +363,14 @@
 				E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */,
 				E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */,
 				E7E077E515D3B63C0020DFD4 /* CoreVideo.framework in Frameworks */,
+				C88950D218CF57D5009AFEFF /* DPP.framework in Frameworks */,
+				C88950D318CF57D5009AFEFF /* EDSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08D6B3F45240AFCA5FA63DD8 /* EDSDK */ = {
-			isa = PBXGroup;
-			children = (
-				C8B7004B18BFD54E00CD234C /* Framework */,
-				B948E1B83600BECF678C930F /* Header */,
-			);
-			name = EDSDK;
-			sourceTree = "<group>";
-		};
-		0E4D6C63D9B300A8BBE55C64 /* EdsWrapper */ = {
-			isa = PBXGroup;
-			children = (
-				92055C671EEE8A524CF272AC /* EdsExamples.cpp */,
-				7791AC9511C1676937AEB387 /* EdsExamples.h */,
-				E82CDAAC4A26EC1B373C4277 /* EdsException.cpp */,
-				54818A1268A71512E1BF1599 /* EdsException.h */,
-				F9F919DBE9A48D9B371A113B /* EdsStrings.cpp */,
-				73F874EFBA0344A6BF79603D /* EdsStrings.h */,
-				82E7AA330574FD684E200968 /* EdsWrapper.cpp */,
-				98122687E6A63929096132E4 /* EdsWrapper.h */,
-			);
-			name = EdsWrapper;
-			sourceTree = "<group>";
-		};
 		0EB05C7216DABD2A4D16955E /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,26 +384,6 @@
 			name = src;
 			sourceTree = "<group>";
 		};
-		100F4BC097895D739C4A559D /* src */ = {
-			isa = PBXGroup;
-			children = (
-				0E4D6C63D9B300A8BBE55C64 /* EdsWrapper */,
-				D11D2727C9235B964B49BE92 /* FixedQueue.h */,
-				1934179099162351F1B5B888 /* ofxEdsdk.cpp */,
-				D75006A4CBBAAFAAFCFA7304 /* ofxEdsdk.h */,
-				D03229F2B0E0DA9C6B39A2D9 /* RateTimer.h */,
-			);
-			name = src;
-			sourceTree = "<group>";
-		};
-		36C21EF9E884A9B0F14A2506 /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				08D6B3F45240AFCA5FA63DD8 /* EDSDK */,
-			);
-			name = libs;
-			sourceTree = "<group>";
-		};
 		740A13843CEAB96D67AD2894 /* ofxCocoaWindow */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,25 +392,15 @@
 			name = ofxCocoaWindow;
 			sourceTree = "<group>";
 		};
-		B948E1B83600BECF678C930F /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				5599781C5743F242B7B3FD27 /* EDSDK.h */,
-				C1885FC3281895D66D14ABA4 /* EDSDKErrors.h */,
-				AB82260D99436779EC6390CF /* EDSDKTypes.h */,
-			);
-			name = Header;
-			sourceTree = "<group>";
-		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				C88950B418CF57D5009AFEFF /* ofxEdsdk */,
 				C8C9F7E118CA37EC005B88B8 /* ofxUI */,
 				C822123718C121500071C377 /* ofxOsc */,
 				C822122418C1214B0071C377 /* ofxOSCSync */,
 				C80B25F818BFDB80000147DF /* ofxXmlSettings */,
 				C80B25F318BFD8FB000147DF /* ofxWatchdog */,
-				EEF32998CF5EC8EB4BB22DA7 /* ofxEdsdk */,
 				740A13843CEAB96D67AD2894 /* ofxCocoaWindow */,
 			);
 			name = addons;
@@ -687,14 +634,79 @@
 			path = osc;
 			sourceTree = "<group>";
 		};
-		C8B7004B18BFD54E00CD234C /* Framework */ = {
+		C88950B418CF57D5009AFEFF /* ofxEdsdk */ = {
 			isa = PBXGroup;
 			children = (
-				C8B7004C18BFD54E00CD234C /* DPP.framework */,
-				C8B7004D18BFD54E00CD234C /* EDSDK.framework */,
+				C88950B518CF57D5009AFEFF /* src */,
+				C88950C318CF57D5009AFEFF /* libs */,
 			);
-			name = Framework;
-			path = ../libs/EDSDK/Framework;
+			name = ofxEdsdk;
+			sourceTree = "<group>";
+		};
+		C88950B518CF57D5009AFEFF /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C88950B618CF57D5009AFEFF /* EdsWrapper */,
+				C88950BF18CF57D5009AFEFF /* FixedQueue.h */,
+				C88950C018CF57D5009AFEFF /* ofxEdsdk.cpp */,
+				C88950C118CF57D5009AFEFF /* ofxEdsdk.h */,
+				C88950C218CF57D5009AFEFF /* RateTimer.h */,
+			);
+			name = src;
+			path = ../src;
+			sourceTree = "<group>";
+		};
+		C88950B618CF57D5009AFEFF /* EdsWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				C88950B718CF57D5009AFEFF /* EdsExamples.cpp */,
+				C88950B818CF57D5009AFEFF /* EdsExamples.h */,
+				C88950B918CF57D5009AFEFF /* EdsException.cpp */,
+				C88950BA18CF57D5009AFEFF /* EdsException.h */,
+				C88950BB18CF57D5009AFEFF /* EdsStrings.cpp */,
+				C88950BC18CF57D5009AFEFF /* EdsStrings.h */,
+				C88950BD18CF57D5009AFEFF /* EdsWrapper.cpp */,
+				C88950BE18CF57D5009AFEFF /* EdsWrapper.h */,
+			);
+			path = EdsWrapper;
+			sourceTree = "<group>";
+		};
+		C88950C318CF57D5009AFEFF /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				C88950C418CF57D5009AFEFF /* EDSDK */,
+				C88950CC18CF57D5009AFEFF /* read.me */,
+			);
+			name = libs;
+			path = ../libs;
+			sourceTree = "<group>";
+		};
+		C88950C418CF57D5009AFEFF /* EDSDK */ = {
+			isa = PBXGroup;
+			children = (
+				C88950C518CF57D5009AFEFF /* Framework */,
+				C88950C818CF57D5009AFEFF /* Header */,
+			);
+			path = EDSDK;
+			sourceTree = "<group>";
+		};
+		C88950C518CF57D5009AFEFF /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				C88950C618CF57D5009AFEFF /* DPP.framework */,
+				C88950C718CF57D5009AFEFF /* EDSDK.framework */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		C88950C818CF57D5009AFEFF /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				C88950C918CF57D5009AFEFF /* EDSDK.h */,
+				C88950CA18CF57D5009AFEFF /* EDSDKErrors.h */,
+				C88950CB18CF57D5009AFEFF /* EDSDKTypes.h */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		C8C9F7E118CA37EC005B88B8 /* ofxUI */ = {
@@ -858,15 +870,6 @@
 			name = openFrameworks;
 			sourceTree = "<group>";
 		};
-		EEF32998CF5EC8EB4BB22DA7 /* ofxEdsdk */ = {
-			isa = PBXGroup;
-			children = (
-				100F4BC097895D739C4A559D /* src */,
-				36C21EF9E884A9B0F14A2506 /* libs */,
-			);
-			name = ofxEdsdk;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -972,18 +975,16 @@
 				C8C9F85518CA37EC005B88B8 /* ofxUIMinimalSlider.cpp in Sources */,
 				C8C9F85F18CA37EC005B88B8 /* ofxUISlider.cpp in Sources */,
 				C8C9F84218CA37EC005B88B8 /* ofxUI2DPad.cpp in Sources */,
+				C88950D118CF57D5009AFEFF /* ofxEdsdk.cpp in Sources */,
 				C8C9F84E18CA37EC005B88B8 /* ofxUIImageButton.cpp in Sources */,
 				C8C9F86318CA37EC005B88B8 /* ofxUISuperCanvas.cpp in Sources */,
 				C822126418C121500071C377 /* ofxOscParameterSync.cpp in Sources */,
 				C822123618C1214B0071C377 /* ofxServerOscManager.cpp in Sources */,
 				29D734F0DDECC8C5978185D7 /* testApp.cpp in Sources */,
-				DC0E62F8B0B3788019133EEE /* EdsExamples.cpp in Sources */,
-				98B8FBEBCB30751117560A3C /* EdsException.cpp in Sources */,
 				C8C9F85218CA37EC005B88B8 /* ofxUILabel.cpp in Sources */,
 				C8C9F84818CA37EC005B88B8 /* ofxUIDragableLabelButton.cpp in Sources */,
 				C8C9F85918CA37EC005B88B8 /* ofxUINumberDialer.cpp in Sources */,
 				C822126818C121500071C377 /* NetworkingUtils.cpp in Sources */,
-				4218B75B282493DAC567F4DB /* EdsStrings.cpp in Sources */,
 				C822123318C1214B0071C377 /* ofxClientOSCManager.cpp in Sources */,
 				C8C9F84C18CA37EC005B88B8 /* ofxUIFPSSlider.cpp in Sources */,
 				C8C9F85A18CA37EC005B88B8 /* ofxUIRadio.cpp in Sources */,
@@ -1001,14 +1002,14 @@
 				C8C9F86818CA37EC005B88B8 /* ofxUIToggleMatrix.cpp in Sources */,
 				C80B260218BFDB80000147DF /* tinyxml.cpp in Sources */,
 				C8C9F86C18CA37EC005B88B8 /* ofxUIWidgetWithLabel.cpp in Sources */,
+				C88950CE18CF57D5009AFEFF /* EdsException.cpp in Sources */,
 				C822123518C1214B0071C377 /* ofxCommonTimeOsc.cpp in Sources */,
 				C822126A18C121500071C377 /* OscOutboundPacketStream.cpp in Sources */,
 				C80B260118BFDB80000147DF /* ofxXmlSettings.cpp in Sources */,
 				C8C9F85C18CA37EC005B88B8 /* ofxUIRectangle.cpp in Sources */,
 				C8C9F84118CA37EC005B88B8 /* ofxUI2DGraph.cpp in Sources */,
 				C8C9F86418CA37EC005B88B8 /* ofxUITabBar.cpp in Sources */,
-				C734402E0210D65EEE6DAFBF /* EdsWrapper.cpp in Sources */,
-				25BC98C28D78024F202A79FB /* ofxEdsdk.cpp in Sources */,
+				C88950CD18CF57D5009AFEFF /* EdsExamples.cpp in Sources */,
 				C822126C18C121500071C377 /* OscReceivedElements.cpp in Sources */,
 				9754517CF564D416069E0E69 /* GLView.mm in Sources */,
 				C8C9F85D18CA37EC005B88B8 /* ofxUIRotarySlider.cpp in Sources */,
@@ -1017,6 +1018,7 @@
 				7FC3313A0C9098D6C6D0CFB7 /* ofxCocoaDelegate.mm in Sources */,
 				C80B260318BFDB80000147DF /* tinyxmlerror.cpp in Sources */,
 				C8C9F85618CA37EC005B88B8 /* ofxUIMovingGraph.cpp in Sources */,
+				C88950D018CF57D5009AFEFF /* EdsWrapper.cpp in Sources */,
 				C8C9F84318CA37EC005B88B8 /* ofxUIBaseDraws.cpp in Sources */,
 				C8C9F86718CA37EC005B88B8 /* ofxUIToggle.cpp in Sources */,
 				C8C9F85018CA37EC005B88B8 /* ofxUIImageSlider.cpp in Sources */,
@@ -1025,6 +1027,7 @@
 				C80B260418BFDB80000147DF /* tinyxmlparser.cpp in Sources */,
 				C8C9F85818CA37EC005B88B8 /* ofxUIMultiImageToggle.cpp in Sources */,
 				C822126718C121500071C377 /* IpEndpointName.cpp in Sources */,
+				C88950CF18CF57D5009AFEFF /* EdsStrings.cpp in Sources */,
 				C822126B18C121500071C377 /* OscPrintReceivedElements.cpp in Sources */,
 				C8C9F84B18CA37EC005B88B8 /* ofxUIFPS.cpp in Sources */,
 				C822126918C121500071C377 /* UdpSocket.cpp in Sources */,

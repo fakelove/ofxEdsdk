@@ -28,8 +28,9 @@ void testApp::update() {
             gui->addWidgetDown(new ofxUILabel("CAMERAS", OFX_UI_FONT_MEDIUM));
             for(map<int, string>::iterator itr = mCameraMap.begin(); itr!=mCameraMap.end(); ++itr){
                 CameraMapping[itr->second] = "";
+                
                 gui->addWidgetDown(new ofxUIButton("Cameria:"+ofToString(itr->first)+" serial: "+itr->second, false, 16, 16));
-                gui->addWidgetDown(new ofxUITextInput(itr->second, ofToString(itr->first), OFX_UI_FONT_MEDIUM));
+                //gui->addWidget(new ofxUITextInput(itr->second, ofToString(itr->first), OFX_UI_FONT_MEDIUM));
             }
             gui->autoSizeToFitWidgets();
         }
@@ -39,7 +40,53 @@ void testApp::update() {
             string dir = ofGetTimestampString();
             ofDirectory::createDirectory(ofGetTimestampString(), true);
             for(map<string, ofBuffer>::iterator itr = images.begin(); itr!=images.end(); ++itr){
-                ofBufferToFile(dir+"/"+itr->first+".png", itr->second, true);
+                string filename = itr->first;
+                if(itr->first == "292074032994"){
+                    filename = "1";
+                }else if(itr->first == "292074032993"){
+                    filename = "2";
+                }
+                else if(itr->first == "292074032992"){
+                    filename = "3";
+                }
+                
+                else if(itr->first == "292074032989"){
+                    filename = "4";
+                }
+                
+                else if(itr->first == "342074067873"){
+                    filename = "5";
+                }
+                
+                else if(itr->first == "292074036327"){
+                    filename = "6";
+                }
+                
+                else if(itr->first == "342074067877"){
+                    filename = "7";
+                }
+                
+                else if(itr->first == "292074032991"){
+                    filename = "8";
+                }
+                
+                else if(itr->first == "322074063646"){
+                    filename = "9";
+                }
+                
+                else if(itr->first == "322074067491"){
+                    filename = "10";
+                }
+                
+                else if(itr->first == "322074062352"){
+                    filename = "11";
+                }
+                
+                else if(itr->first == "322074067417"){
+                    filename = "12";
+                }
+                
+                ofBufferToFile(dir+"/"+filename+".png", itr->second, true);
                 ofImage foo;
                 foo.loadImage(itr->second);
                 captures.push_back(foo);
@@ -62,7 +109,7 @@ void testApp::update() {
 void testApp::draw() {
     ofPushMatrix();
     
-    if(captures.size() > 0){
+    if(captures.size() > mCurrentIndex){
         captures[mCurrentIndex].draw(ofGetWidth()-captures[mCurrentIndex].getWidth()/2, 0, captures[mCurrentIndex].getWidth()/2, captures[mCurrentIndex].getHeight()/2);
     }
     int count = 0;
@@ -146,7 +193,7 @@ void testApp::windowResized(int w, int h){
 }
 
 void testApp::keyPressed(int key) {
-
+    
 }
 
 void testApp::exit(){
